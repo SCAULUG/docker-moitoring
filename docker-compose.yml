@@ -1,12 +1,14 @@
 version: '3'
 
 services:
+    # 访问 influxDB:http://localhost:8083/ 
     influxdb:
         image: tutum/influxdb:0.9
         container_name: influxdb
         restart: always
         environment:
             - PRE_CREATE_DB=cadvisor
+         # 设置端口
         ports:
             - "8083:8083"
             - "8086:8086"
@@ -15,6 +17,8 @@ services:
             - "8099"
         volumes:
             - influxdbData:/data
+　　# cadvisor 访问：http://localhost:8080/
+   # Data Sources/InfluxDB HTTP Link 地址： http://influxsrv:8086/
     cadvisor:
         image: google/cadvisor
         container_name: cadvisor
@@ -22,6 +26,7 @@ services:
             - influxdb:influxsrv
         command: -storage_driver=influxdb -storage_driver_db=cadvisor -storage_driver_host=influxsrv:8086
         restart: always
+      # 设置端口
         ports:
             - "8080:8080"
         volumes:
@@ -29,6 +34,7 @@ services:
             - /var/run:/var/run:rw
             - /sys:/sys:ro
             - /var/lib/docker/:/var/lib/docker:ro
+    # grafana 访问：http://localhost:3000/
     grafana:
         image: grafana/grafana
         container_name: grafana
@@ -37,6 +43,7 @@ services:
             - influxdb:influxsrv
         ports:
             - "3000:3000"
+　　　　　# 设置登入信息
         environment:
             - HTTP_USER=admin
             - HTTP_PASS=admin
