@@ -13,7 +13,9 @@
  docker-compose -f docker-compose.yml up -d
 ```
 
+打开浏览器访问 `http://localhost:3000`，用户名默认为 `admin` ，密码为 `admin`
 
-Note:确保您已经安装 `docker-compose`，相关信息可查看官方安装教程 [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-打开浏览器访问 `http://localhost:3000`，默认用户名为 `admin` ，密码为 `admin`
+**Note:**确保您已经安装 `docker-compose`，相关信息可查看官方安装教程 [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+
