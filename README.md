@@ -1,6 +1,6 @@
 ## Docker-monitoring
 
-使用`cadvisor + influxdb + grafana` 配置 Docker 监控
+使用`cAdvisor + InfluxDB + Grafana` 配置 Docker 监控
 
 
 ## Usage 
